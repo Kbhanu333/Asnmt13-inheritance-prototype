@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Assignment-13-Inheritance&Prototype</h1>
+
+    <h4>1. Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype</h4>
+<pre>
+    let parent = {
+        firstName: "Bhanu",
+        lastName: "prasad",
+        fullName() {
+          return this.firstName + " " + this.lastName;
+        }
+    };
+    let child ={
+          __proto__: parent,
+    };
+    console.log(child.fullName()); 
+</pre>
+<h3>
+    <pre>
+        Output :
+
+                Bhanu prasad
+    </pre>
+</h3>
+    <h4>2. Write code to explain prototype chaining</h4>
+<pre>
+    function Person() {
+        this.name = "Bhanu"
+    }
+    Person.prototype.name = "Bhanu";
+    Person.prototype.age = "21";
+
+    const newPerson = new Person();
+
+    console.log(newPerson.name); 
+    console.log(newPerson.age);
+</pre>
+<h3>
+    <pre>
+        Output :
+
+               Bhanu
+               21
+    </pre>
+</h3>
+    <h4>3. Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays.</h4>
+ <pre>
+    Array.prototype.sum = function() {
+        let sum = 0;
+              for (let i = 0; i < this.length; i++) 
+                  sum += this[i]; 
+              return sum; 
+    };
+    let arr = [2,5,7,6,4];
+    console.log(arr.sum())
+</pre>
+<h3>
+    <pre>
+        Output :
+
+                24
+    </pre>
+</h3>
+    <h4>4. Write a JavaScript function to retrieve all the names of object's own and inherited properties.</h4>
+<pre>
+    let parent = {
+        collage: SNIT,
+        branch: civil ,
+    };
+    let child = {
+        __proto__: parent,
+        
+         Name: "Bhanu",
+        
+    };
+    for(let prop in child)
+        console.log(prop);
+</pre>
+<h3>
+    <pre>
+        Output :
+               Name
+               collage
+               branch
+    </pre>
+</h3>
+
+<script src="./index.js"></script>
+</body>
+</html>
